@@ -12,7 +12,7 @@
 
 - Dos números $R, C \in \mathbb{N}$ que representan el número de filas y de columnas respectivamente tales que $1 \leq R,C \leq 8$.
 
-- Dos números $A, B \in \mathbb{N}$ que representan los costos de un movimiento que te permite obtener oro y uno que no, respectivamente. De tal forma que se cumpla que $1 \leq A,B \leq 100$.
+- Dos números $A, B \in \mathbb{N}$ tales que $1 \leq A,B \leq 100$. Siendo $A$ el costo de un movimiento que no te permite obtener oro y $B$ el costo de un movimiento que si te lo permite.
 
 - 
 
