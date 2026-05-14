@@ -1,3 +1,8 @@
+<!--
+Informe: https://docs.google.com/document/d/1mYe2-0JJSJ0eMT33SBN20u6liXLCd2189NNc4a60BQc/edit?usp=sharing 
+Bitácora: https://docs.google.com/document/d/1r21B8GVLwrdU9LiXVuJgD0mrLyDipj8_0oZAxo1N3Ds/edit?usp=sharing
+-->
+
 # Informe: Proyecto final de Árboles y Grafos 2026-1
 
 1<sup>er</sup> Juan Felipe Borbón Melo 
