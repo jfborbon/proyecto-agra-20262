@@ -1,45 +1,35 @@
-# lectura de datos
-#def read_input():
+from sys import stdin
 
+# Lee todos los datos de entrada y los organiza por caso de prueba.
+def read_input():
+    pass
 
-# Convierte la orientación del cubo al moverlo hacia el norte
-#def roll_north(state):
+# Calcula la nueva orientación del cubo al moverlo en una dirección dada.
+def rotate_cube(orientation, direction):
+    pass
 
+# Genera el nuevo estado del problema después de hacer un movimiento.
+def transition_state(state, direction):
+    pass
 
-# Convierte la orientación del cubo al moverlo hacia el sur
-#def roll_south(state):
+# Define si el movimiento actual tiene costo A o costo B.
+def move_cost(state, next_state, A, B):
+    pass
 
+# Aplica Dijkstra sobre el grafo de estados para hallar el costo mínimo.
+def dijkstra(R, C, A, B, grid):
+    pass
 
-# Convierte la orientación del cubo al moverlo hacia el este
-#def roll_east(state):
+# Resuelve un caso de prueba completo y devuelve la respuesta correspondiente.
+def solve_case(R, C, A, B, grid):
+    pass
 
-
-# Convierte la orientación del cubo al moverlo hacia el oeste
-#def roll_west(state):
-
-
-# Obtiene los estados vecinos posibles desde un estado dado
-#def get_neighbors(state):
-
-
-# Ejecuta Dijkstra sobre el grafo de estados
-#def dijkstra(grid, start, gold_positions, A, B):
-
-
-# Verifica si un estado ya representa que se recolectó todo el oro
-#def is_goal(state):
-
-
-
+# Programa principal: lee la entrada y procesa cada caso.
 def main():
-    T = int(input())
-    
-    for _ in range(T):
-        R, C, A, B = map(int, input().split())
-        grid = [input().strip() for _ in range(R)]
-        
-        # Aqui se procesaría cada caso de prueb y se imprimiría la respuesta correspondiente
-        pass
+    data = stdin.read().splitlines()
+    # Aquí se organizarían los casos de prueba.
+    # Luego se llamaría solve_case(...) para cada uno.
+    pass
 
 
 #main()
