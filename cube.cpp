@@ -22,7 +22,6 @@ using namespace std;
 class MagicCube {
     public:
         bool front, back, left, right, up, down;
-        int contGold;
     
         MagicCube() {
             front = false;
@@ -31,32 +30,21 @@ class MagicCube {
             right = false;
             up = false;
             down = false;
-            contGold = 0;
         }
 
         void getGold() {
             if (!down) {
                 down = true;
-                contGold++;
             }
         }
 
         void dropGold() {
             if (down) {
                 down = false;
-                contGold--;
             }
         }
 
         void rotateLeft() {
-            bool aux = front;
-            front = left;
-            left = back;
-            back = right;
-            right = aux;
-        }
-
-        void rotateRight() {
             bool aux = front;
             front = right;
             right = back;
@@ -64,7 +52,23 @@ class MagicCube {
             left = aux;
         }
 
+        void rotateRight() {
+            bool aux = front;
+            front = left;
+            left = back;
+            back = right;
+            right = aux;
+        }
+
         void rotateUp() {
+            bool aux = front;
+            front = down;
+            down = back;
+            back = up;
+            up = aux;
+        }
+
+        void rotateDown() {
             bool aux = front;
             front = up;
             up = back;
@@ -72,12 +76,8 @@ class MagicCube {
             down = aux;
         }
 
-        void rotateDown() {
-            bool aux = front;
-            front = down;
-            down = back;
-            back = up;
-            up = aux;
+        int getContGold() const {
+            return front + back + up + down + left + right;
         }
 };
 
@@ -200,7 +200,7 @@ int searchGold(int rows, int colums, int A, int B, State& initialState) {
         if (!visited.count(actualState)) {
             visited.insert(actualState);
 
-            if (actualState.magicCube.contGold == 6) {
+            if (actualState.magicCube.getContGold() == 6) {
                 found = true;
                 ans = actualState.cost;
             }
