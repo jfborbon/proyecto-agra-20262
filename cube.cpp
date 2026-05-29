@@ -45,38 +45,38 @@ class MagicCube {
         }
 
         void rotateLeft() {
-            bool aux = front;
-            front = right;
-            right = back;
-            back = left;
-            left = aux;
-        }
-
-        void rotateRight() {
-            bool aux = front;
-            front = left;
-            left = back;
-            back = right;
+            bool aux = down;
+            down = left;
+            left = up;
+            up = right;
             right = aux;
         }
 
+        void rotateRight() {
+            bool aux = down;
+            down = right;
+            right = up;
+            up = left;
+            left = aux;
+        }
+
         void rotateUp() {
-            bool aux = front;
-            front = down;
-            down = back;
-            back = up;
-            up = aux;
+            bool aux = down;
+            down = front;
+            front = up;
+            up = back;
+            back = aux;
         }
 
         void rotateDown() {
-            bool aux = front;
-            front = up;
-            up = back;
-            back = down;
-            down = aux;
+            bool aux = down;
+            down = back;
+            back = up;
+            up = front;
+            front = aux;
         }
 
-        int getContGold() const {
+        int getContGold() {
             return front + back + up + down + left + right;
         }
 };
