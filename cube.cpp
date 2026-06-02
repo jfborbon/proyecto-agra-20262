@@ -3,11 +3,46 @@ Integrantes:
 - Juan Felipe Borbon Melo
 - Juan Andrés Correa Arenas
 
+
+Análisis de complejidad:
+
+- Funciones de rotación de MagicCube: O(1)
+Esto se debe a que las rotaciones del cubo solo se encargan de intercambiar los 
+valores de sus caras. Puesto que la cantidad de caras es constante, por lo tanto, 
+las operaciones que se realizan para hacer estos intercambios también lo son.
+
+- posibleNewStateAux: O(1)
+La complejidad de esta función es constante, ya que solo realiza operaciones que 
+se ejecutan en tiempo constante, como encender, apagar o revisar un bit. La suma 
+de varias operaciones constantes resulta en un orden constante.
+
+- posibleNewState: O(1)
+Las operaciones que realiza internamente esta función son condicionales de tiempo 
+constante con operaciones aritméticas básicas. También usa las operaciones de 
+rotación del cubo y hace un llamado a posibleNewStateAux, que, como ya se vio, 
+son de tiempo constante. Esto nos da como resultado que la función es constante, 
+ya que todas las operaciones que realiza también lo son.
+
+- searchGold: O(n * log(n))
+Esta función hace una implementación del algoritmo de Dijkstra orientado a un grafo 
+de estados para resolver el problema, haciendo uso de las funciones ya descritas. 
+Por ende, siendo n el número de estados posibles del sistema (determinado por la 
+posición de Cartman, la configuración del cubo y la distribución del oro en el 
+tablero), en el peor de los casos todos los n estados son procesados. En consecuencia, 
+estos en algún punto tuvieron que ser introducidos dentro de la cola de prioridad, 
+lo cual tiene un costo de O(log(n)). Para cada estado se realizan 4 llamados a 
+posibleNewState para evaluar sus transiciones, operación que es constante. Por lo 
+tanto, al final tenemos que se procesan n nodos y por cada nodo se pueden dar 4 
+inserciones dentro de la cola de prioridad, dando de esta forma una complejidad 
+de O(n * log(n)).
+
+
 Referencias:
 - Jakogut, “Hashing function for four unsigned integers (C++),” Stack Overflow, Nov. 30, 2009. 
 https://stackoverflow.com/questions/1818134/hashing-function-for-four-unsigned-integers-c
 
-- GeeksforGeeks, “Bitmask in C++,” GeeksforGeeks, Dec. 11, 2023. https://www.geeksforgeeks.org/cpp/bitmasking-in-cpp/
+- GeeksforGeeks, “Bitmask in C++,” GeeksforGeeks, Dec. 11, 2023.
+https://www.geeksforgeeks.org/cpp/bitmasking-in-cpp/
 */
 #include <vector>
 #include <iostream>
