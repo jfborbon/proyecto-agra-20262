@@ -44,6 +44,7 @@ https://stackoverflow.com/questions/1818134/hashing-function-for-four-unsigned-i
 - GeeksforGeeks, “Bitmask in C++,” GeeksforGeeks, Dec. 11, 2023.
 https://www.geeksforgeeks.org/cpp/bitmasking-in-cpp/
 */
+
 #include <vector>
 #include <iostream>
 #include <unordered_set>
@@ -166,7 +167,9 @@ struct greaterState {
 
 
 void posibleNewStateAux(int A, int B, State& state) {
-    if (state.thersGold & (1LL << state.cartman)) { // hay oro en la posición de cartman
+    long long mask = 1LL << state.cartman;
+
+    if (state.thersGold & (mask)) { // hay oro en la posición de cartman
         if (state.magicCube.down) { // la cara inferior del cubo tiene oro
             state.cost += A;
         }
@@ -174,7 +177,7 @@ void posibleNewStateAux(int A, int B, State& state) {
             state.cost += B;
             state.magicCube.getGold();
             // como se gana oro se recoje el oro de la posición de cartman apagando el bit en esa posición
-            state.thersGold &= ~(1LL << state.cartman); // apagar bit
+            state.thersGold &= ~(mask); // apagar bit
         }
     }
     else { // no hay oro en la posición de cartman
@@ -182,7 +185,7 @@ void posibleNewStateAux(int A, int B, State& state) {
         if (state.magicCube.down) { // la cara inferior del cubo tiene oro
             state.magicCube.dropGold();
             // como pierde oro se tira oro en la posición de cartman prendiendo el bit de esa posición
-            state.thersGold |= (1LL << state.cartman); // prender bit
+            state.thersGold |= (mask); // prender bit
         }
     }
 }
@@ -218,7 +221,7 @@ State posibleNewState (int orientation, int rows, int colums, int A, int B, Stat
 }
 
 
-// se impelenta un Dijkstra para la resolución del problema
+// se implementa un Dijkstra para la resolución del problema
 int searchGold(int rows, int colums, int A, int B, State& initialState) {
     int ans, i;
     ans = -1;
@@ -227,6 +230,7 @@ int searchGold(int rows, int colums, int A, int B, State& initialState) {
     bool found = false;
     State actualState, newState;
     pqueue.push(initialState);
+    visited.reserve(500000);
 
     while (!pqueue.empty() && !found) {
         actualState = pqueue.top();
