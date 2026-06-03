@@ -131,7 +131,7 @@ struct State {
     long long thersGold;
     int cost;
 
-    // se necesita un operator para que el unordered_set pueda comprovar si 2 estados son iguales o distintos
+    // se necesita un operator para que el unordered_set pueda comprobar si 2 estados son iguales o distintos
     bool operator==(const State& state) const {
         return cartman == state.cartman &&
             thersGold == state.thersGold &&
