@@ -23,7 +23,7 @@ rotación del cubo y hace un llamado a posibleNewStateAux, que, como ya se vio,
 son de tiempo constante. Esto nos da como resultado que la función es constante, 
 ya que todas las operaciones que realiza también lo son.
 
-- searchGold: O(n * log(n))
+- searchGold: O((n + m) * log(n))
 Esta función hace una implementación del algoritmo de Dijkstra orientado a un grafo 
 de estados para resolver el problema, haciendo uso de las funciones ya descritas. 
 Por ende, siendo n el número de estados posibles del sistema (determinado por la 
@@ -34,7 +34,7 @@ lo cual tiene un costo de O(log(n)). Para cada estado se realizan 4 llamados a
 posibleNewState para evaluar sus transiciones, operación que es constante. Por lo 
 tanto, al final tenemos que se procesan n nodos y por cada nodo se pueden dar 4 
 inserciones dentro de la cola de prioridad, dando de esta forma una complejidad 
-de O(n * log(n)).
+de O((n + m) * log(n)).
 
 
 Referencias:
@@ -80,7 +80,7 @@ class MagicCube {
             }
         }
 
-        void rotateLeft() {
+        void rotateRight() {
             bool aux = down;
             down = left;
             left = up;
@@ -88,7 +88,7 @@ class MagicCube {
             right = aux;
         }
 
-        void rotateRight() {
+        void rotateLeft() {
             bool aux = down;
             down = right;
             right = up;
@@ -96,7 +96,7 @@ class MagicCube {
             left = aux;
         }
 
-        void rotateUp() {
+        void rotateDown() {
             bool aux = down;
             down = front;
             front = up;
@@ -104,7 +104,7 @@ class MagicCube {
             back = aux;
         }
 
-        void rotateDown() {
+        void rotateUp() {
             bool aux = down;
             down = back;
             back = up;
